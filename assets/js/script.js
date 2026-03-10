@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  if (window.gsap) {
+  if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
 
     gsap.utils.toArray(".reveal").forEach((element) => {
@@ -26,8 +26,31 @@ document.addEventListener("DOMContentLoaded", function () {
         scrollTrigger: {
           trigger: element,
           start: "top 85%",
+          toggleActions: "play none none none",
         },
       });
+    });
+
+    ScrollTrigger.refresh();
+
+    window.addEventListener("load", function () {
+      ScrollTrigger.refresh();
+
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 800);
+
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 1800);
+
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 3000);
+
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 4500);
     });
   }
 
