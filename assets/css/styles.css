@@ -146,7 +146,8 @@ footer,
 .about,
 .process,
 .cta-band,
-.contact {
+.contact,
+.trust {
   position: relative;
   z-index: 1;
 }
@@ -196,7 +197,9 @@ footer,
 .process-step p,
 .footer p,
 .footer li,
-.contact-list li {
+.contact-list li,
+.trust-card p,
+.brands-block-header p {
   color: var(--color-text-light);
   font-size: 1rem;
 }
@@ -466,6 +469,109 @@ footer,
   margin-bottom: 10px;
 }
 
+/* NUEVA SECCIÓN TRUST */
+.trust {
+  background: transparent;
+}
+
+.trust-heading {
+  max-width: 820px;
+}
+
+.brands-block {
+  margin-top: 10px;
+  margin-bottom: 34px;
+  padding: 30px;
+  border-radius: var(--radius-lg);
+  background: rgba(11, 16, 38, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(10px);
+}
+
+.brands-block-header {
+  max-width: 760px;
+  margin-bottom: 24px;
+}
+
+.brands-block-header h3 {
+  font-size: 1.35rem;
+  color: #f8fafc;
+  margin-bottom: 10px;
+}
+
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.brand-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90px;
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: var(--transition);
+}
+
+.brand-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(124, 58, 237, 0.25);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+.brand-logo {
+  max-width: 100%;
+  max-height: 42px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+  filter: grayscale(100%);
+  opacity: 0.9;
+  transition: var(--transition);
+}
+
+.brand-item:hover .brand-logo {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.trust-card {
+  padding: 28px 24px;
+  border-radius: var(--radius-md);
+  background: rgba(11, 16, 38, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+}
+
+.trust-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 24px rgba(124, 58, 237, 0.16),
+    0 16px 45px rgba(0, 0, 0, 0.45);
+  border-color: rgba(124, 58, 237, 0.28);
+}
+
+.trust-card h3 {
+  font-size: 1.08rem;
+  color: #f8fafc;
+  margin-bottom: 12px;
+}
+
+/* ABOUT */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -891,6 +997,14 @@ footer,
     max-height: 340px;
   }
 
+  .brands-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+
   .instagram-embeds {
     grid-template-columns: 1fr;
   }
@@ -962,6 +1076,24 @@ footer,
     grid-template-columns: 1fr;
   }
 
+  .brands-block {
+    padding: 24px;
+  }
+
+  .brands-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .brand-item {
+    min-height: 78px;
+    padding: 14px;
+  }
+
+  .brand-logo {
+    max-height: 34px;
+  }
+
   .cta-band-content {
     flex-direction: column;
     align-items: flex-start;
@@ -993,6 +1125,10 @@ footer,
   .hero-img.dos {
     max-width: 90%;
     max-height: 180px;
+  }
+
+  .brands-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .contact-form,
