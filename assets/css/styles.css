@@ -353,6 +353,7 @@ footer,
   margin: 12px auto 30px;
   width: 100%;
   max-width: 1200px;
+  perspective: 1000px;
 }
 
 .hero-img {
@@ -361,10 +362,17 @@ footer,
   object-fit: contain;
   flex-shrink: 1;
   min-width: 0;
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+  transform-style: preserve-3d;
 }
 
 .hero-img-copy,
-.hero-img-product {
+.hero-img-product,
+.hero-img.uno,
+.hero-img.dos,
+.uno,
+.dos {
   width: auto;
   max-width: 48%;
   max-height: 420px;
@@ -1074,16 +1082,20 @@ footer,
     padding: 90px 0 70px;
   }
 
-  .hero-images {
-    gap: 18px;
-    max-width: 100%;
-  }
+.hero-images {
+  gap: 18px;
+  max-width: 100%;
+}
 
-  .hero-img-copy,
-  .hero-img-product {
-    max-width: 48%;
-    max-height: 230px;
-  }
+.hero-img-copy,
+.hero-img-product,
+.hero-img.uno,
+.hero-img.dos,
+.uno,
+.dos {
+  max-width: 48%;
+  max-height: 230px;
+}
 
   .hero-buttons {
     flex-direction: column;
@@ -1130,19 +1142,23 @@ footer,
     font-size: 1.85rem;
   }
 
-  .hero-images {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-    max-width: 100%;
-  }
+ .hero-images {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  max-width: 100%;
+}
 
-  .hero-img-copy,
-  .hero-img-product {
-    max-width: 90%;
-    max-height: 180px;
-  }
+.hero-img-copy,
+.hero-img-product,
+.hero-img.uno,
+.hero-img.dos,
+.uno,
+.dos {
+  max-width: 90%;
+  max-height: 180px;
+}
 
   .brands-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));

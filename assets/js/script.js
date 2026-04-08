@@ -57,6 +57,45 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  /* PARALLAX HERO */
+  const heroImagesContainer = document.querySelector(".hero-images");
+  const heroImgLeft =
+    document.querySelector(".hero-img-copy") ||
+    document.querySelector(".hero-img.dos") ||
+    document.querySelector(".dos");
+
+  const heroImgRight =
+    document.querySelector(".hero-img-product") ||
+    document.querySelector(".hero-img.uno") ||
+    document.querySelector(".uno");
+
+  if (heroImagesContainer && heroImgLeft && heroImgRight) {
+    heroImagesContainer.addEventListener("mousemove", function (event) {
+      if (window.innerWidth <= 820) return;
+
+      const rect = heroImagesContainer.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const moveX = (x - centerX) / centerX;
+      const moveY = (y - centerY) / centerY;
+
+      heroImgLeft.style.transform =
+        `translate(${moveX * 12}px, ${moveY * 12}px) rotateY(${moveX * 6}deg) rotateX(${moveY * -4}deg)`;
+
+      heroImgRight.style.transform =
+        `translate(${moveX * -12}px, ${moveY * -12}px) rotateY(${moveX * -6}deg) rotateX(${moveY * 4}deg)`;
+    });
+
+    heroImagesContainer.addEventListener("mouseleave", function () {
+      heroImgLeft.style.transform = "translate(0, 0) rotateY(0deg) rotateX(0deg)";
+      heroImgRight.style.transform = "translate(0, 0) rotateY(0deg) rotateX(0deg)";
+    });
+  }
+
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
 
