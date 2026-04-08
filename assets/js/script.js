@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.querySelector(".menu-toggle");
   const menu = document.querySelector(".menu");
+  const navDropdowns = document.querySelectorAll(".nav-dropdown");
 
   if (menuToggle && menu) {
     menuToggle.addEventListener("click", function () {
@@ -10,9 +11,51 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".menu a").forEach((link) => {
       link.addEventListener("click", () => {
         menu.classList.remove("active");
+
+        navDropdowns.forEach((dropdown) => {
+          dropdown.classList.remove("active");
+          const toggle = dropdown.querySelector(".dropdown-toggle");
+          if (toggle) toggle.setAttribute("aria-expanded", "false");
+        });
       });
     });
   }
+
+  navDropdowns.forEach((dropdown) => {
+    const toggle = dropdown.querySelector(".dropdown-toggle");
+
+    if (!toggle) return;
+
+    toggle.addEventListener("click", function (event) {
+      if (window.innerWidth <= 820) {
+        event.preventDefault();
+
+        navDropdowns.forEach((item) => {
+          if (item !== dropdown) {
+            item.classList.remove("active");
+            const otherToggle = item.querySelector(".dropdown-toggle");
+            if (otherToggle) otherToggle.setAttribute("aria-expanded", "false");
+          }
+        });
+
+        dropdown.classList.toggle("active");
+        toggle.setAttribute(
+          "aria-expanded",
+          dropdown.classList.contains("active") ? "true" : "false"
+        );
+      }
+    });
+  });
+
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 820) {
+      navDropdowns.forEach((dropdown) => {
+        dropdown.classList.remove("active");
+        const toggle = dropdown.querySelector(".dropdown-toggle");
+        if (toggle) toggle.setAttribute("aria-expanded", "false");
+      });
+    }
+  });
 
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
