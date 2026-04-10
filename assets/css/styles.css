@@ -1142,6 +1142,29 @@ footer,
     width: min(94%, var(--container-width));
   }
 
+  .services-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 16px 12px;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .services-grid::-webkit-scrollbar {
+    display: none; /* Chrome, Edge, Safari */
+  }
+
+  .service-card {
+    flex: 0 0 85%;
+    min-width: 85%;
+    scroll-snap-align: start;
+    margin: 0;
+  }
+
   body {
   position: relative;
   font-family: Arial, Helvetica, sans-serif;
