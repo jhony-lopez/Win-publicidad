@@ -201,8 +201,9 @@ footer,
 
 .logo-img {
   display: block;
-  height: 70px;
+  height: 100px;
   width: auto;
+  padding: 8px;
 }
 
 .logo-img1 {
