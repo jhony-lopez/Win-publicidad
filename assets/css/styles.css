@@ -1157,6 +1157,20 @@ footer,
   max-width: 100%;
 }
 
+.logo-img {
+    display: block;
+    height: 85px;
+    width: auto;
+    padding: 8px;
+}
+
+.portfolio-card img {
+    width: 500%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0;
+}
+
 .hero-img-copy,
 .hero-img-product,
 .hero-img.uno,
